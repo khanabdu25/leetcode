@@ -193,3 +193,11 @@ class LinkedList:
                 self.head = previous
                 self.tail = old_head
                 break
+
+    def middle(self):
+        if self.head is None:
+            return None
+        elif self.head.next is None:
+            return self.head.value
+        elif self.head.next == self.tail:
+            return self.tail.value
