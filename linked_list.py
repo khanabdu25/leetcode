@@ -197,10 +197,6 @@ class LinkedList:
     def middle(self):
         if self.head is None:
             return None
-        elif self.head.next is None:
-            return self.head.value
-        elif self.head.next == self.tail:
-            return self.tail.value
 
         fast = self.head
         slow = self.head
@@ -209,4 +205,7 @@ class LinkedList:
             if fast is None or fast.next is None:
                 return slow.value
             slow = slow.next
-            fast = fast.next.next
+            if fast.next is not None:
+                fast = fast.next.next
+            else:
+                fast = None
