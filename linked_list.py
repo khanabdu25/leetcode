@@ -201,3 +201,12 @@ class LinkedList:
             return self.head.value
         elif self.head.next == self.tail:
             return self.tail.value
+
+        fast = self.head
+        slow = self.head
+
+        while slow is not None:
+            if fast is None or fast.next is None:
+                return slow.value
+            slow = slow.next
+            fast = fast.next.next
