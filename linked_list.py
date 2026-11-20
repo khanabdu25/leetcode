@@ -205,7 +205,4 @@ class LinkedList:
             if fast is None or fast.next is None:
                 return slow.value
             slow = slow.next
-            if fast.next is not None:
-                fast = fast.next.next
-            else:
-                fast = None
+            fast = fast.next.next
