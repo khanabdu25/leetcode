@@ -139,41 +139,6 @@ class LinkedList:
             prev = prev.next
             ind += 1
 
-    def reverse(self):
-        if self.head is None:
-            return
-        if self.head.next is None:
-            return
-        the_len = self.length()
-
-        if the_len == 2:
-            self.tail.next = self.head
-            self.head.next = None
-            temp = self.head
-            self.head = self.tail
-            self.tail = temp
-        else:
-            previous_2 = None
-            previous = self.head
-            old_head = self.head
-            forward = previous.next
-            forward_2 = forward.next
-
-            while previous is not None:
-                forward.next = previous
-                previous.next = previous_2
-                previous_2 = previous
-                previous = forward
-                forward = forward_2
-
-                if forward_2 is not None:
-                    forward_2 = forward_2.next
-
-                else:
-                    self.head = previous
-                    self.tail = old_head
-                    break
-
     def insert_at(self, index, value):
         current_len = self.length()
         if index < 0 or index > current_len:
@@ -199,7 +164,7 @@ class LinkedList:
                 prev = prev.next
                 ind += 1
 
-    def reverse2(self):
+    def reverse(self):
         if self.head is None:
             return
         if self.head.next is None:
