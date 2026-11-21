@@ -206,3 +206,27 @@ class LinkedList:
                 return slow.value
             slow = slow.next
             fast = fast.next.next
+
+    def has_cycle(self):
+        if self.head.next is None:
+            return False
+        if self.tail.next == self.head:
+            return True
+
+        fast = self.head
+        slow = self.head
+
+        while fast is not None:
+            if fast == slow:
+                return True
+
+            if fast.next is None:
+                return False
+
+            if slow is None:
+                return False
+
+            fast = fast.next.next
+            slow = slow.next
+
+        return False
