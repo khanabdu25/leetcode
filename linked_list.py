@@ -227,3 +227,20 @@ class LinkedList:
             slow = slow.next
 
         return False
+
+    def nth_from_end(self, n):
+        if self.head is None:
+            return self.head
+
+        ll_len = self.length()
+        if n < 1 or n > ll_len:
+            return None
+
+        pos = 1
+        desired = ll_len - n + 1
+        pointer = self.head
+        while pos <= ll_len:
+            if pos == desired:
+                return pointer.value
+            pos += 1
+            pointer = pointer.next
