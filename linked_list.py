@@ -208,12 +208,12 @@ class LinkedList:
             fast = fast.next.next
 
     def has_cycle(self):
-        if self.head.next is None:
+        if self.head is None or self.head.next is None:
             return False
         if self.tail.next == self.head:
             return True
 
-        fast = self.head
+        fast = self.head.next.next
         slow = self.head
 
         while fast is not None:
