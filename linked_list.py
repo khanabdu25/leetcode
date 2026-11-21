@@ -223,9 +223,6 @@ class LinkedList:
             if fast.next is None:
                 return False
 
-            if slow is None:
-                return False
-
             fast = fast.next.next
             slow = slow.next
 
