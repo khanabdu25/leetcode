@@ -228,6 +228,23 @@ class LinkedList:
 
         return False
 
+    # def nth_from_end(self, n):
+    #     if self.head is None:
+    #         return self.head
+
+    #     ll_len = self.length()
+    #     if n < 1 or n > ll_len:
+    #         return None
+
+    #     pos = 1
+    #     desired = ll_len - n + 1
+    #     pointer = self.head
+    #     while pos <= ll_len:
+    #         if pos == desired:
+    #             return pointer.value
+    #         pos += 1
+    #         pointer = pointer.next
+
     def nth_from_end(self, n):
         if self.head is None:
             return self.head
@@ -236,11 +253,21 @@ class LinkedList:
         if n < 1 or n > ll_len:
             return None
 
-        pos = 1
-        desired = ll_len - n + 1
-        pointer = self.head
-        while pos <= ll_len:
-            if pos == desired:
-                return pointer.value
-            pos += 1
-            pointer = pointer.next
+        if n == ll_len:
+            return self.head.value
+        elif n == 1:
+            return self.tail.value
+
+        slow = self.head
+        fast = self.head
+
+        jumps = 0
+        while jumps < n:
+            fast = fast.next
+            jumps += 1
+
+        while slow is not None:
+            if fast is None:
+                return slow.value
+            slow = slow.next
+            fast = fast.next
