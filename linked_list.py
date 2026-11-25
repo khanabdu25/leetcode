@@ -249,22 +249,21 @@ class LinkedList:
         if self.head is None:
             return self.head
 
-        ll_len = self.length()
-        if n < 1 or n > ll_len:
-            return None
-
-        if n == ll_len:
-            return self.head.value
-        elif n == 1:
+        if n == 1:
             return self.tail.value
 
         slow = self.head
         fast = self.head
 
-        jumps = 0
-        while jumps < n:
+        jumps = n
+        while jumps > 0:
             fast = fast.next
-            jumps += 1
+            jumps -= 1
+            if fast is None:
+                break
+
+        if jumps != 0:
+            return None
 
         while slow is not None:
             if fast is None:
