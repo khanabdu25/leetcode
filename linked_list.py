@@ -255,7 +255,7 @@ class LinkedList:
         # edge cases that are good to have to short circuit things,
         # but solution required not using len()
         # ll_len = self.length()
-        # if n < 1 or n > ll_len:
+        # if n > ll_len:
         #     return None
 
         # if n == ll_len:
