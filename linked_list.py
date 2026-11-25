@@ -249,6 +249,9 @@ class LinkedList:
         if self.head is None:
             return self.head
 
+        if n < 1:
+            return None
+
         # edge cases that are good to have to short circuit things,
         # but solution required not using len()
         # ll_len = self.length()
