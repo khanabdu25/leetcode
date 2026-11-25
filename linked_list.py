@@ -249,8 +249,16 @@ class LinkedList:
         if self.head is None:
             return self.head
 
-        if n == 1:
-            return self.tail.value
+        # edge cases that are good to have to short circuit things,
+        # but solution required not using len()
+        # ll_len = self.length()
+        # if n < 1 or n > ll_len:
+        #     return None
+
+        # if n == ll_len:
+        #     return self.head.value
+        # elif n == 1:
+        #     return self.tail.value
 
         slow = self.head
         fast = self.head
@@ -263,6 +271,7 @@ class LinkedList:
                 break
 
         if jumps != 0:
+            # still more jumps left after end reached, n out of bounds
             return None
 
         while slow is not None:
