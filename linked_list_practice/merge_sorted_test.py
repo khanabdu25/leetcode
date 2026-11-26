@@ -28,12 +28,17 @@ def merge_sorted(list1, list2):
         other2 = other.next
         to_return = list2
 
-    while this2 is not None:
+    while this is not None:
+        if this2 is None:
+            this.next = other
+            break
+
         if this2.value < other.value:
             this = this.next
             this2 = this2.next
         else:
-            other2 = other2.next
+            if other2 is not None:
+                other2 = other2.next
             this.next = other
             this = this.next
             other = other.next
