@@ -33,7 +33,7 @@ def merge_sorted(list1, list2):
             this.next = other
             break
 
-        if this2.value < other.value:
+        if other is None or this2.value < other.value:
             this = this.next
             this2 = this2.next
         else:
