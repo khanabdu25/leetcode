@@ -13,16 +13,20 @@ def merge_sorted(list1, list2):
     other = None
     other2 = None
 
+    to_return = None
+
     if list1.value < list2.value:
         this = list1
         this2 = this.next
         other = list2
         other2 = other.next
+        to_return = list1
     else:
         this = list2
         this2 = this.next
         other = list1
         other2 = other.next
+        to_return = list2
 
     while this2 is not None:
         if this2.value < other.value:
@@ -35,7 +39,7 @@ def merge_sorted(list1, list2):
             other = other.next
             this.next = this2
 
-    return this
+    return to_return
 
 
 # Test 1: Both lists empty
