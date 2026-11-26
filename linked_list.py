@@ -282,3 +282,24 @@ class LinkedList:
                 return slow.value
             slow = slow.next
             fast = fast.next
+
+    def remove_duplicates(self):
+        if self.head is None or self.head.next is None:
+            return
+
+        pointer = self.head
+
+        skipped = 0
+        hold = self.head
+
+        while pointer.next is not None:
+            if pointer.next.value > pointer.value:
+                pointer = pointer.next
+                hold.next = pointer
+                hold = hold.next
+            else:
+                pointer = pointer.next
+                skipped += 1
+
+        self.tail = hold
+        self.len = self.len - skipped
