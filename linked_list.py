@@ -282,3 +282,39 @@ class LinkedList:
                 return slow.value
             slow = slow.next
             fast = fast.next
+
+    def merge_sorted(self, list1, list2):
+        if not list1:
+            return list2
+
+        if not list2:
+            return list1
+
+        this = None
+        this2 = None
+        other = None
+        other2 = None
+
+        if list1.value < list2.value:
+            this = list1
+            this2 = this.next
+            other = list2
+            other2 = other.next
+        else:
+            this = list2
+            this2 = this.next
+            other = list1
+            other2 = other.next
+
+        while this2 is not None:
+            if this2.value < other.value:
+                this = this.next
+                this2 = this2.next
+            else:
+                other2 = other2.next
+                this.next = other
+                this = this.next
+                other = other.next
+                this.next = this2
+
+        return None
